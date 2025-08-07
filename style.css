@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&display=swap');
+:root{
+    --fonte-principal: Bebas Neue, sans-serif;
+    --fonte-secundaria: Bungee, sans-serif;
+    --neon-principal: #ffe700;
+    --background: #1a1b17;
+    --background-secondary: #2b2c28;
+    --branco-principal: #ffffff;
+    --preto-principal: #000000;
+    --sombra-neon: 0 0 20px rgba(255, 231, 0, 0.3);
+}
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--background);
+    /* background-size: cover; */
+    /* background-position: center; esses comando são utilizados quando se tem uma imagem no background.  */
+}
+.container{
+    width: 420px;
+    background-color: transparent;
+    border: 2px var(--neon-principal) solid ;
+    border-radius: 10px;
+    box-shadow: var(--sombra-neon);
+    color: var(--branco-principal);
+    padding: 30px 40px;
+}
+.container:hover{
+    width: 420px;
+    background-color: var(--background-secondary);
+    border: 2px var(--neon-principal) solid ;
+    border-radius: 10px;
+    box-shadow: var(--sombra-neon);
+    color: var(--branco-principal);
+    padding: 30px 40px;
+}
+.container h1{
+    text-align: center;
+    font-family: var(--fonte-principal);
+    font-size: 36px;
+}
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 25px;
+    margin: 30px 0;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 2px var(--neon-principal) solid;
+    border-radius: 40px;
+    
+    font-size: 16px;
+    color: var(--branco-principal);
+    padding: 20px 45px 20px 20px;
+    
+}
+.input-box input:hover{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 2px var(--neon-principal) solid;
+    border-radius: 40px;
+    box-shadow: var(--sombra-neon);
+    font-size: 16px;
+    color: var(--branco-principal);
+    padding: 20px 45px 20px 20px;
+    
+}
+.input-box::placeholder{
+    color: var(--branco-principal);
+}
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top:50%;
+}
+.remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    margin: -5px 0 15px;
+    
+}
+.remember-forgot label input{
+    accent-color: var(--branco-principal);
+}
+.remember-forgot a{
+    text-decoration: none;
+    color: var(--branco-principal)
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+.login{
+    width: 100%;
+    height: 50px;
+    background-color: var(--background);
+    border: 2px var(--neon-principal) solid;
+    border-radius: 40px;
+    box-shadow: var(--sombra-card);
+    color: var(--branco-principal);
+    font: var(--fonte-principal);
+}
+.login:hover{
+    background-color: var(--neon-principal);
+    box-shadow: var(--sombra-neon);
+    color: var(--preto-principal);
+}
+.first-time{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 0;
+}
+.first-time a{
+    text-decoration: none;
+    color: var(--branco-principal);
+}
+.first-time a:hover{
+    text-decoration: underline;
+}
