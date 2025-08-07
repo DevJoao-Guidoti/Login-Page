@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Paleta de cores refinada baseada no portfólio */
+    --fonte-principal: 'Poppins', sans-serif;
+    --fonte-secundaria: 'Poppins', sans-serif;
+    
+    /* Cores principais */
+    --primary-color: #ffe700;
+    --primary-dark: #e6d000;
+    --primary-light: #fff033;
+    
+    /* Backgrounds */
+    --background-primary: #0a0e1a;
+    --background-secondary: #1a1f2e;
+    --background-card: rgba(26, 31, 46, 0.8);
+    
+    /* Cores neutras */
+    --text-primary: #ffffff;
+    --text-secondary: #b8c1d9;
+    --text-muted: #6b7280;
+    
+    /* Efeitos */
+    --shadow-primary: 0 0 30px rgba(255, 231, 0, 0.3);
+    --shadow-secondary: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 0 40px rgba(255, 231, 0, 0.5);
+    
+    /* Bordas */
+    --border-radius: 12px;
+    --border-radius-full: 50px;
+    
+    /* Transições */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--background-primary) 0%, var(--background-secondary) 100%);
+    font-family: var(--fonte-principal);
+    overflow: hidden;
+}
+
+/* Efeito de partículas no background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 25% 25%, rgba(255, 231, 0, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, rgba(230, 208, 0, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    width: 420px;
+    background: var(--background-card);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-primary), var(--shadow-secondary);
+    color: var(--text-primary);
+    padding: 40px;
+    position: relative;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+}
+
+/* Efeito de brilho no container */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 231, 0, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: var(--transition-smooth);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover), var(--shadow-secondary);
+    background: rgba(26, 31, 46, 0.9);
+}
+
+.container:hover::before {
+    opacity: 1;
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.container h1 {
+    text-align: center;
+    font-family: var(--fonte-principal);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 231, 0, 0.3);
+    border-radius: var(--border-radius-full);
+    outline: none;
+    font-size: 16px;
+    color: var(--text-primary);
+    padding: 0 50px 0 20px;
+    transition: var(--transition-smooth);
+    font-family: var(--fonte-principal);
+}
+
+.input-box input::placeholder {
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+}
+
+.input-box input:focus {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.input-box input:focus::placeholder {
+    color: var(--text-secondary);
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 20px;
+    transition: var(--transition-fast);
+}
+
+.input-box:hover i {
+    color: var(--primary-light);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 30px;
+    font-size: 14px;
+}
+
+.remember-forgot label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition-fast);
+}
+
+.remember-forgot label:hover {
+    color: var(--text-primary);
+}
+
+.remember-forgot label input {
+    accent-color: var(--primary-color);
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.remember-forgot .link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.remember-forgot .link:hover {
+    color: var(--primary-light);
+}
+
+.remember-forgot .link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition-fast);
+}
+
+.remember-forgot .link:hover::after {
+    width: 100%;
+}
+
+.login {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+    border-radius: var(--border-radius-full);
+    color: var(--text-primary);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-smooth);
+}
+
+.login:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+}
+
+.login:hover::before {
+    left: 100%;
+}
+
+.login:active {
+    transform: translateY(0);
+}
+
+.first-time {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.first-time .link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 5px;
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.first-time .link:hover {
+    color: var(--primary-light);
+}
+
+.first-time .link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition-fast);
+}
+
+.first-time .link:hover::after {
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .container h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Animações de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeInUp 0.6s ease-out;
+}
